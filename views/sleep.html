@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sleep Tracking | SleepWell</title>
+
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">🌙 SleepWell</div>
+
+            <ul class="nav-links">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/sleep">Sleep Tracking</a></li>
+                <li><a href="/health">Health Tracking</a></li>
+                <li><a href="/history">History</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="/logout" class="login-btn">Logout</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main class="tracking-container">
+
+        <div class="tracking-heading">
+
+            <p>YOUR SLEEP JOURNEY</p>
+
+            <h1>🌙 Sleep Tracking</h1>
+
+            <span>
+                Record your sleep schedule and understand
+                your sleeping habits.
+            </span>
+
+        </div>
+
+
+        <div class="tracking-card">
+
+            <h2>Record Your Sleep</h2>
+
+            <p class="tracking-subtitle">
+                Enter your bedtime and wake-up time.
+            </p>
+
+            <form action="/sleep" method="POST" id="sleepForm">
+
+                <label>Bedtime</label>
+
+                <input
+                    type="datetime-local"
+                    name="sleep_time"
+                    id="sleepTime"
+                    required
+                >
+
+                <label>Wake-up Time</label>
+
+                <input
+                    type="datetime-local"
+                    name="wake_time"
+                    id="wakeTime"
+                    required
+                >
+
+                <label>Sleep Quality</label>
+
+                <select name="sleep_quality" required>
+
+                    <option value="">Select Sleep Quality</option>
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Average">Average</option>
+                    <option value="Poor">Poor</option>
+
+                </select>
+
+                <div class="duration-preview">
+
+                    <p>Estimated Sleep Duration</p>
+
+                    <h2 id="duration">0 hours</h2>
+
+                </div>
+
+                <button type="submit" class="tracking-button">
+                    Save Sleep Record
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <h3>🌙 SleepWell</h3>
+
+        <p>Sleep Better. Live Healthier.</p>
+
+        <p>© 2026 Sleep & Health Tracking Application</p>
+
+    </footer>
+
+
+    <script src="/JS/sleep.js"></script>
+
+</body>
+
+</html>

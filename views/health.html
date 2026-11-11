@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Health Tracking | SleepWell</title>
+
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">🌙 SleepWell</div>
+
+            <ul class="nav-links">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/sleep">Sleep Tracking</a></li>
+                <li><a href="/health">Health Tracking</a></li>
+                <li><a href="/history">History</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="/logout" class="login-btn">Logout</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <main class="tracking-container">
+
+        <div class="tracking-heading">
+
+            <p>YOUR DAILY WELLNESS</p>
+
+            <h1>💧 Health Tracking</h1>
+
+            <span>
+                Track your water intake, daily steps
+                and exercise activities.
+            </span>
+
+        </div>
+
+
+        <div class="tracking-card">
+
+            <h2>Record Your Daily Health</h2>
+
+            <p class="tracking-subtitle">
+                Enter your daily health information.
+            </p>
+
+            <form action="/health" method="POST">
+
+                <label>Date</label>
+
+                <input
+                    type="date"
+                    name="record_date"
+                    required
+                >
+
+                <label>Water Intake (ml)</label>
+
+                <input
+                    type="number"
+                    name="water_intake"
+                    placeholder="Example: 2000"
+                    min="0"
+                    required
+                >
+
+                <label>Daily Steps</label>
+
+                <input
+                    type="number"
+                    name="steps"
+                    placeholder="Example: 5000"
+                    min="0"
+                    required
+                >
+
+                <label>Exercise Duration (minutes)</label>
+
+                <input
+                    type="number"
+                    name="exercise_minutes"
+                    placeholder="Example: 30"
+                    min="0"
+                    required
+                >
+
+                <button type="submit" class="tracking-button">
+                    Save Health Record
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <h3>🌙 SleepWell</h3>
+
+        <p>Sleep Better. Live Healthier.</p>
+
+        <p>© 2026 Sleep & Health Tracking Application</p>
+
+    </footer>
+
+</body>
+
+</html>

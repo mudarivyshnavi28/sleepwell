@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | SleepWell</title>
+
+    <link rel="stylesheet" href="/CSS/style.css">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">🌙 SleepWell</div>
+
+            <ul class="nav-links">
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/sleep">Sleep Tracking</a></li>
+                <li><a href="/health">Health Tracking</a></li>
+                <li><a href="/history">History</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="/logout" class="login-btn">Logout</a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- DASHBOARD CONTENT -->
+    <main class="dashboard">
+
+        <!-- WELCOME SECTION -->
+        <div class="dashboard-heading">
+
+            <p>YOUR PERSONAL WELLNESS SPACE</p>
+
+            <h1>
+                Welcome, <span id="userName">User</span>! 👋
+            </h1>
+
+            <p>
+                Track your daily habits and work towards a healthier lifestyle.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS CARDS -->
+        <section class="stats-container">
+
+            <!-- SLEEP DURATION -->
+            <div class="stat-card">
+
+                <div class="stat-icon">🌙</div>
+
+                <h3>Sleep Duration</h3>
+
+                <h2 id="sleepDuration">0 hrs</h2>
+
+                <p>Latest sleep record</p>
+
+            </div>
+
+
+            <!-- WATER INTAKE -->
+            <div class="stat-card">
+
+                <div class="stat-icon">💧</div>
+
+                <h3>Water Intake</h3>
+
+                <h2 id="waterIntake">0 ml</h2>
+
+                <p>Today's intake</p>
+
+                <div class="goal-bar">
+                    <div class="goal-progress" id="waterProgress"></div>
+                </div>
+
+                <p id="waterPercentage">0% completed</p>
+
+                <p>Daily Goal: 2000 ml</p>
+
+            </div>
+
+
+            <!-- DAILY STEPS -->
+            <div class="stat-card">
+
+                <div class="stat-icon">🚶</div>
+
+                <h3>Daily Steps</h3>
+
+                <h2 id="dailySteps">0</h2>
+
+                <p>Today's activity</p>
+
+            </div>
+
+
+            <!-- EXERCISE -->
+            <div class="stat-card">
+
+                <div class="stat-icon">🏃</div>
+
+                <h3>Exercise</h3>
+
+                <h2 id="exerciseMinutes">0 min</h2>
+
+                <p>Today's exercise</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DASHBOARD GRID -->
+        <section class="dashboard-grid">
+
+
+            <!-- DAILY SLEEP GOAL -->
+            <div class="dashboard-box">
+
+                <h2>🎯 Daily Sleep Goal</h2>
+
+                <p>Set your daily sleep target</p>
+
+                <form id="sleepGoalForm">
+
+                    <input
+                        type="number"
+                        id="targetHours"
+                        min="1"
+                        max="24"
+                        step="0.5"
+                        placeholder="Enter hours (Example: 8)"
+                        required
+                    >
+
+                    <button type="submit" class="action-btn">
+                        Save Goal
+                    </button>
+
+                </form>
+
+                <h1 id="sleepGoal">8 Hours</h1>
+
+                <p id="goalMessage"></p>
+
+                <div class="goal-bar">
+                    <div class="goal-progress" id="goalProgress"></div>
+                </div>
+
+                <p id="goalPercentage">0% completed</p>
+
+                <a href="/sleep">Record Your Sleep →</a>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+            <div class="dashboard-box">
+
+                <h2>💜 Quick Actions</h2>
+
+                <a href="/sleep" class="action-btn">
+                    🌙 Track Sleep
+                </a>
+
+                <a href="/health" class="action-btn">
+                    💧 Update Health
+                </a>
+
+                <a href="/history" class="action-btn">
+                    📊 View History
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- WEEKLY SLEEP SUMMARY -->
+        <section class="dashboard-box weekly-box">
+
+            <h2>📈 Weekly Sleep Summary</h2>
+
+            <p>Your recent sleep records will appear here.</p>
+
+            <div id="weeklySummary"></div>
+
+        </section>
+<!-- WEEKLY SLEEP ANALYTICS -->
+
+<section class="dashboard-box">
+
+    <h2>📊 Weekly Sleep Duration Chart</h2>
+
+    <p>Visualize your recent sleep duration.</p>
+
+    <div class="chart-container">
+        <canvas id="sleepChart"></canvas>
+    </div>
+
+</section>
+<!-- AVERAGE SLEEP DURATION -->
+
+<section class="dashboard-box">
+
+    <h2>⏰ Average Sleep Duration</h2>
+
+    <div class="quality-container">
+
+        <h1 id="averageSleep">0 Hours</h1>
+
+        <p>Your average sleep duration across recent records.</p>
+
+    </div>
+
+</section>
+
+<!-- SLEEP CONSISTENCY ANALYSIS -->
+
+<section class="dashboard-box">
+
+    <h2>🌙 Sleep Consistency Analysis</h2>
+
+    <div class="quality-container">
+
+        <h3>Average Bedtime</h3>
+        <h1 id="averageBedtime">--:--</h1>
+
+        <h3>Average Wake-up Time</h3>
+        <h1 id="averageWakeTime">--:--</h1>
+
+        <p id="consistencyMessage">
+            Record your sleep regularly to analyze your sleep schedule.
+        </p>
+
+    </div>
+
+</section>
+<!-- SLEEP QUALITY DISTRIBUTION -->
+
+<section class="dashboard-box">
+
+    <h2>💜 Sleep Quality Distribution</h2>
+
+    <p>Understand your sleep quality over recent records.</p>
+
+    <div class="chart-container">
+        <canvas id="qualityChart"></canvas>
+    </div>
+
+</section>
+<!-- MONTHLY SLEEP REPORT -->
+
+<section class="dashboard-box">
+
+    <h2>📅 Monthly Sleep Report</h2>
+
+    <p>Your sleep performance for the current month.</p>
+<button id="downloadMonthlyReport" class="btn">
+    📄 Download Monthly Report (PDF)
+</button>
+    <div class="dashboard-cards">
+
+        <div class="card">
+            <h3>Total Sleep Records</h3>
+            <h2 id="monthlyRecords">0</h2>
+        </div>
+
+        <div class="card">
+            <h3>Average Sleep</h3>
+            <h2 id="monthlyAverage">0 Hours</h2>
+        </div>
+
+        <div class="card">
+            <h3>Best Sleep Duration</h3>
+            <h2 id="bestSleep">0 Hours</h2>
+        </div>
+
+        <div class="card">
+            <h3>Most Common Sleep Quality</h3>
+            <h2 id="commonQuality">--</h2>
+        </div>
+
+    </div>
+
+    <h3>Monthly Sleep Duration Chart</h3>
+
+    <div class="chart-container">
+        <canvas id="monthlySleepChart"></canvas>
+    </div>
+
+</section>
+
+        <!-- SLEEP QUALITY ANALYSIS -->
+        <section class="dashboard-box">
+
+            <h2>💜 Sleep Quality Analysis</h2>
+
+            <div class="quality-container">
+
+                <h3>Latest Sleep Quality</h3>
+
+                <h1 id="sleepQuality">Not Available</h1>
+
+                <p id="qualityMessage">
+                    Start recording your sleep to see your analysis.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h3>🌙 SleepWell</h3>
+
+        <p>Sleep Better. Live Healthier.</p>
+
+        <p>© 2026 Sleep & Health Tracking Application</p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.4/jspdf.plugin.autotable.min.js"></script>
+
+<script src="/JS/dashboard.js"></script>
+</body>
+
+</html>
